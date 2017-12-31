@@ -23,8 +23,8 @@ comment: '#';
     Lexer Rules
  */
 
-INC_DATA: '(';
-DEC_DATA: ')';
+INC_DATA: ')';
+DEC_DATA: '(';
 
 INC_BYTE: '\\';
 DEC_BYTE: '/';
