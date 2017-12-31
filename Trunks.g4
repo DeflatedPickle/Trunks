@@ -11,7 +11,11 @@ options {
 
 program: (opcode NEWLINE)*;
 
-opcode: START | INC_DATA | DEC_DATA | INC_BYTE | DEC_BYTE | OUT | IN;
+opcode: START | END |
+        INC_DATA | DEC_DATA |
+        INC_BYTE | DEC_BYTE|
+        WHILE_STRT | WHILE_END |
+        OUT | IN;
 
 comment: '#';
 
@@ -25,10 +29,14 @@ DEC_DATA: ')';
 INC_BYTE: '\\';
 DEC_BYTE: '/';
 
+WHILE_STRT: '|';
+WHILE_END: '|';
+
 OUT: '*';
 IN: '~';
 
-START: '-';
+START: '}-';
+END: '}';
 
 NEWLINE: '\n';
 
