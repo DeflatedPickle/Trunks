@@ -1,0 +1,22 @@
+# Trunks
+# Add values
+
+}-       # cell_0 = 2
+  \
+   \
+    }
+
+}-        # cell_1 = 2
+  \
+   \
+   /
+  }
+
+}-
+  |        # Start a loop.
+   )       # Move to cell_0.
+   \       # Add 1 to cell_0.
+   (       # Move to cell_1.
+   /       # Subtract 1 from cell_1.
+  |        # End the loop.
+  }
