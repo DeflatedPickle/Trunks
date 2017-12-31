@@ -38,6 +38,6 @@ IN: '~';
 START: '}-';
 END: '}';
 
-NEWLINE: '\n';
-
+NEWLINE: '\r\n';
+WS: [ \t\r\n\f]+ -> skip;
 
