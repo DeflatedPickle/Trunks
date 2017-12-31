@@ -1,12 +1,12 @@
 # Trunks
 # Add values
 
-}-       # cell_0 = 2
+}-         # cell_0 = 2
   \
    \
     }
 
-}-        # cell_1 = 5
+}-         # cell_1 = 5
   \
    \
    /
@@ -41,15 +41,15 @@
 }-
   |
   (        # Move to cell_0.
-   \        # Add 6 to cell_0.
+   \       # Add 6 to cell_0.
     \
      \
       \
        \
         \
-         )   # Move to cell_1.
-        /    # Subtract 1 from cell_1.
+         )  # Move to cell_1.
+        /   # Subtract 1 from cell_1.
        |
        )
-       *     # Print cell_0.
+       *    # Print cell_0.
        }
