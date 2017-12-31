@@ -101,3 +101,9 @@ ENV/
 .mypy_cache/
 
 .idea/
+
+Trunks.tokens
+TrunksLexer.py
+TrunksLexer.tokens
+TrunksListener.py
+TrunksParser.py
