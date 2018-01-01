@@ -41,7 +41,7 @@ WHILE_END: '|';
 OUT: '*';
 IN: '~';
 
-COMMENT: '#' ~[\r\n]* -> skip;
+COMMENT: [a-zA-Z0-9]+ ~[\r\n]* -> skip;
 
 WS: [ \t\r\n\f]+ -> skip;
 
