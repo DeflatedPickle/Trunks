@@ -11,8 +11,11 @@ options {
 program: code EOF;
 code: (trunk | COMMENT)+;
 trunk: START_TRNK line+ END_TRNK;
-line: opcode | COMMENT;
+line: statement | COMMENT;
 
+statement: opcode | while_smnt;
+
+while_smnt: WHILE_STRT line+ WHILE_END;
 opcode: START_TRNK | END_TRNK |
         INC_POINT | DEC_POINT |
         INC_BYTE | DEC_BYTE |

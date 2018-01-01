@@ -11,7 +11,7 @@ class TrunksInterpreter(TrunksListener):
         self.cells: list = [0] * 10
         self.trunks: int = 0
 
-        self.flag_while = False
+        self.flag_while: bool = False
 
     def enterCode(self, ctx:TrunksParser.CodeContext):
         print(f"Program: {ctx.getText()}\n")
@@ -46,18 +46,20 @@ class TrunksInterpreter(TrunksListener):
         elif ctx.getText() == "|":
             # WHILE_STRT/WHILE_END
             if not self.flag_while:
-                pass
+                self.flag_while = True
 
             if self.flag_while:
-                pass
+                self.flag_while = False
 
         elif ctx.getText() == "*":
-            print(chr(self.cells[self.pointer]))
+            # OUT
+            print("OUT:", self.cells[self.pointer - 1])
 
         elif ctx.getText() == "~":
+            # IN
             self.cells[self.pointer] = input()
 
-        print(f"Pointer: {self.pointer}", f"Cells: {self.cells}", f"Trunks: {self.trunks}", sep="\n")
+        print(f"Pointer: {self.pointer}", f"Cells: {self.cells}", f"Trunks: {self.trunks}\n", sep="\n")
 
 
 if __name__ == "__main__":
