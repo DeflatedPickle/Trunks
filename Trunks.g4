@@ -8,14 +8,14 @@ options {
     Parser Rules
  */
 
-
 program: code EOF;
 code: (trunk | COMMENT)+;
 trunk: START_TRNK line+ END_TRNK;
 line: opcode | COMMENT;
 
-opcode: INC_DATA | DEC_DATA |
-        INC_BYTE | DEC_BYTE|
+opcode: START_TRNK | END_TRNK |
+        INC_POINT | DEC_POINT |
+        INC_BYTE | DEC_BYTE |
         WHILE_STRT | WHILE_END |
         OUT | IN;
 
@@ -23,8 +23,11 @@ opcode: INC_DATA | DEC_DATA |
     Lexer Rules
  */
 
-INC_DATA: ')';
-DEC_DATA: '(';
+START_TRNK: '}-';
+END_TRNK: '}';
+
+INC_POINT: ')';
+DEC_POINT: '(';
 
 INC_BYTE: '\\';
 DEC_BYTE: '/';
@@ -34,9 +37,6 @@ WHILE_END: '|';
 
 OUT: '*';
 IN: '~';
-
-START_TRNK: '}-';
-END_TRNK: '}';
 
 COMMENT: '#' ~[\r\n]* -> skip;
 
