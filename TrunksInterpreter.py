@@ -7,10 +7,57 @@ from TrunksParser import TrunksParser
 
 class TrunksInterpreter(TrunksListener):
     def __init__(self):
-        self.cells: list = []
+        self.pointer: int = 0
+        self.cells: list = [0] * 10
+        self.trunks: int = 0
+
+        self.flag_while = False
 
     def enterCode(self, ctx:TrunksParser.CodeContext):
+        print(f"Program: {ctx.getText()}\n")
+
+    def exitLine(self, ctx:TrunksParser.LineContext):
         print(ctx.getText())
+
+        if ctx.getText() == "}-":
+            # START_TRNK
+            self.trunks += 1
+
+        elif ctx.getText() == "}":
+            # END_TRNK
+            pass
+
+        elif ctx.getText() == ")":
+            # INC_POINT
+            self.pointer += 1
+
+        elif ctx.getText() == "(":
+            # DEC_POINT
+            self.pointer -= 1
+
+        elif ctx.getText() == "\\":
+            # INC_BYTE
+            self.cells[self.pointer] += 1
+
+        elif ctx.getText() == "/":
+            # DEC_BYTE
+            self.cells[self.pointer] -= 1
+
+        elif ctx.getText() == "|":
+            # WHILE_STRT/WHILE_END
+            if not self.flag_while:
+                pass
+
+            if self.flag_while:
+                pass
+
+        elif ctx.getText() == "*":
+            print(chr(self.cells[self.pointer]))
+
+        elif ctx.getText() == "~":
+            self.cells[self.pointer] = input()
+
+        print(f"Pointer: {self.pointer}", f"Cells: {self.cells}", f"Trunks: {self.trunks}", sep="\n")
 
 
 if __name__ == "__main__":
