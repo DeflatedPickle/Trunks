@@ -9,12 +9,12 @@ options {
  */
 
 
-program: code+ EOF;
-code: (opcode NEWLINE)+;
-line: (opcode | COMMENT) NEWLINE;
+program: code EOF;
+code: (trunk | COMMENT)+;
+trunk: START_TRNK line+ END_TRNK;
+line: opcode | COMMENT;
 
-opcode: START | END |
-        INC_DATA | DEC_DATA |
+opcode: INC_DATA | DEC_DATA |
         INC_BYTE | DEC_BYTE|
         WHILE_STRT | WHILE_END |
         OUT | IN;
@@ -35,11 +35,10 @@ WHILE_END: '|';
 OUT: '*';
 IN: '~';
 
-START: '}-';
-END: '}';
+START_TRNK: '}-';
+END_TRNK: '}';
 
-COMMENT: '#';
+COMMENT: '#' ~[\r\n]* -> skip;
 
-NEWLINE: '\r\n';
 WS: [ \t\r\n\f]+ -> skip;
 
