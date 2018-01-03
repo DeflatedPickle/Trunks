@@ -9,4 +9,5 @@ A esoteric language where everything is constructed as a vertical line.
 | `/` | Decrement the byte at the data pointer. |
 | `*` | Output the byte at the data pointer. |
 | `~` | Input a byte to the data pointer. |
-| Pipe | Start/End a while loop. |
+| `({PIPE}` | Start a loop. |
+| `{PIPE})` | End a loop. |

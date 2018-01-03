@@ -1,9 +1,9 @@
 import antlr4
-import io
 
 from TrunksLexer import TrunksLexer
 from TrunksListener import TrunksListener
 from TrunksParser import TrunksParser
+
 
 class TrunksInterpreter(TrunksListener):
     def __init__(self):
@@ -11,10 +11,10 @@ class TrunksInterpreter(TrunksListener):
         self.cells: list = [0] * 10
         self.trunks: int = 0
 
-    def enterCode(self, ctx:TrunksParser.CodeContext):
+    def enterCode(self, ctx: TrunksParser.CodeContext):
         print(f"Program: {ctx.getText()}\n")
 
-    def exitLine(self, ctx:TrunksParser.LineContext):
+    def exitLine(self, ctx: TrunksParser.LineContext):
         print(ctx.getText())
 
         if ctx.getText() == "}-":
@@ -69,4 +69,3 @@ if __name__ == "__main__":
     interpret = TrunksInterpreter()
     walker = antlr4.ParseTreeWalker()
     walker.walk(interpret, tree)
-
