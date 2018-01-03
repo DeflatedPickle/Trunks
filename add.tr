@@ -16,12 +16,12 @@ Add values
        }
 
 }-
-  |        Start a loop.
+ (|        Start a loop.
   (        Move to cell_0.
    \       Add 1 to cell_0.
     )      Move to cell_1.
    /       Subtract 1 from cell_1.
-  |        End the loop.
+  |)       End the loop.
   }
 
 }-         cell_1 = 4.
@@ -39,7 +39,7 @@ Add values
       }
 
 }-
-  |
+ (|
   (        Move to cell_0.
    \       Add 6 to cell_0.
     \
@@ -49,7 +49,7 @@ Add values
         \
          )  Move to cell_1.
         /   Subtract 1 from cell_1.
-       |
+       |)
        )
        *    Print cell_0.
        }

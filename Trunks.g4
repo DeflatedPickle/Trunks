@@ -13,13 +13,13 @@ code: (trunk | COMMENT)+;
 trunk: START_TRNK line+ END_TRNK;
 line: statement | COMMENT;
 
-statement: opcode | while_smnt;
+statement: opcode | loop;
 
-while_smnt: WHILE_STRT line+ WHILE_END;
+loop: LOOP_STRT line+ LOOP_END;
 opcode: START_TRNK | END_TRNK |
         INC_POINT | DEC_POINT |
         INC_BYTE | DEC_BYTE |
-        WHILE_STRT | WHILE_END |
+        LOOP_STRT | LOOP_END |
         OUT | IN;
 
 /*
@@ -35,8 +35,8 @@ DEC_POINT: '(';
 INC_BYTE: '\\';
 DEC_BYTE: '/';
 
-WHILE_STRT: '|';
-WHILE_END: '|';
+LOOP_STRT: '(|';
+LOOP_END: '|)';
 
 OUT: '*';
 IN: '~';
