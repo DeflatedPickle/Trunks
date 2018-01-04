@@ -11,7 +11,7 @@ class TrunksInterpreter(TrunksListener):
         self.cells: list = [0] * 10
         self.trunks: int = 0
 
-    def enterCode(self, ctx: TrunksParser.CodeContext):
+    def enterProgram(self, ctx:TrunksParser.ProgramContext):
         print(f"Program: {ctx.getText()}\n")
 
     def exitLine(self, ctx: TrunksParser.LineContext):
