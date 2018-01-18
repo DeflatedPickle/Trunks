@@ -1,5 +1,5 @@
 # Trunks
-A esoteric language where everything is constructed as a vertical line.
+An esoteric language where everything is constructed as a vertical line.
 
 | Character | Meaning |
 | --------- | ------- |
