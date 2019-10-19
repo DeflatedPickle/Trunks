@@ -1,7 +1,7 @@
 grammar Trunks;
 
-options {
-    language=Python3;
+@header {
+    package com.deflatedpickle.trunks;
 }
 
 /*
@@ -16,10 +16,8 @@ line: statement | COMMENT;
 statement: opcode | loop;
 
 loop: LOOP_STRT line+ LOOP_END;
-opcode: START_TRNK | END_TRNK |
-        INC_POINT | DEC_POINT |
+opcode: INC_POINT | DEC_POINT |
         INC_BYTE | DEC_BYTE |
-        LOOP_STRT | LOOP_END |
         OUT | IN;
 
 /*

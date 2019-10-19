@@ -1,0 +1,52 @@
+Trunks
+Add values
+
+}-         cell_0 = 2
+  \
+   \
+    }
+
+}-         cell_1 = 5
+  )
+  \
+   \
+    \
+     \
+      \
+       }
+
+}-
+ (|        Loop five times
+   \       Add 1 to cell_0
+   |)       End the loop
+   }
+
+}-         cell_1 = 4
+  \
+   \
+    \
+     \
+      }
+
+}-         cell_1 = 8.
+  \
+   \
+    \
+     \
+      }
+
+}-
+ (|
+  (        Move to cell_0
+   \       Add 6 to cell_0
+    \
+     \
+      \
+       \
+        \
+         )  Move to cell_1
+        /   Subtract 1 from cell_1
+       |)
+       )
+       *    Print cell_0
+       }
